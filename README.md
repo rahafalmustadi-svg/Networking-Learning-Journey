@@ -10,7 +10,7 @@ Tools used
 |3|	VLANs	|⬜️ Planned	|Segmentation, inter-VLAN routing|
 |4	|OSPF + Redundancy|	⬜️ Planned|	Dynamic routing, failover|
 |5	|Security (ACLs, NAT)	|⬜️ Planned	|Access control, address translation|
-|...	More labs added as I progress	|	
+|More labs added as I progress	|--|--|--|	
 
 ## About this repo
 I'm learning networking by building it, not just reading about it. Every project here started from zero and was built and tested step by step. 
