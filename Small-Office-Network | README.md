@@ -5,11 +5,11 @@
 ![Project 1 Topology] <img width="586" height="344" alt="project1-small-office-topology" src="https://github.com/user-attachments/assets/58245f2d-9fbb-44f3-863c-8adc65e324ab" />
 
 
-1 Router (HQ-Router) — the edge device, handles routing + DHCP
-1 Switch (HQ-Switch) — connects all LAN devices
-4 PCs — Accounting, HR, Sales, Manager (DHCP)
-1 Printer — static IP
-1 Server — static IP, file + DHCP backup role
+## 1 Router (HQ-Router) — the edge device, handles routing + DHCP
+## 1 Switch (HQ-Switch) — connects all LAN devices
+## 4 PCs — Accounting, HR, Sales, Manager (DHCP)
+## 1 Printer — static IP
+## 1 Server — static IP, file + DHCP backup role
 
 ## IP addressing
 
