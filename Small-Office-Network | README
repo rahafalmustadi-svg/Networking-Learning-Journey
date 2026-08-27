@@ -2,6 +2,7 @@
 
 ## Topology
 
+![Project 1 Topology] (project1-small-office-topology.png)
 
 1 Router (HQ-Router) — the edge device, handles routing + DHCP
 1 Switch (HQ-Switch) — connects all LAN devices
