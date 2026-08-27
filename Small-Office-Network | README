@@ -1,0 +1,70 @@
+#Project 1: Small Office Network — Single Router
+
+## Topology
+
+
+1 Router (HQ-Router) — the edge device, handles routing + DHCP
+1 Switch (HQ-Switch) — connects all LAN devices
+4 PCs — Accounting, HR, Sales, Manager (DHCP)
+1 Printer — static IP
+1 Server — static IP, file + DHCP backup role
+
+## IP addressing
+
+| Device          | IP Address        | Mask | Gateway    |
+
+HQ-Router(Gi0/0)  | 192.168.1.1       | /24  | —          |
+
+HQ-Switch (VLAN 1)| 192.168.1.2       | /24  | 192.168.1.1|
+
+Accounting-PC DHCP| (192.168.1.10–199)| /24  |192.168.1.1 |
+
+HR-PC             | DHCP              | /24  | 192.168.1.1|
+
+Sales-PC          | DHCP              | /24  | 192.168.1.1|
+
+Manager-PC        | DHCP              | /24  | 192.168.1.1|
+
+Office-Printer    | 192.168.1.200     | /24  | 192.168.1.1|
+
+Server            |192.168.1.250      |/24   | 192.168.1.1|
+
+## How — Router configuration
+
+enable
+configure terminal
+hostname HQ-Router
+interface GigabitEthernet0/0
+ip address 192.168.1.1 255.255.255.0
+no shutdown
+exit
+
+ip dhcp excluded-address 192.168.1.1 192.168.1.9 
+ip dhcp excluded-address 192.168.1.200 192.168.1.254 
+ip dhcp pool LAN-POOL
+network 192.168.1.0 255.255.255.0 
+default-router 192.168.1.1 
+dns-server 8.8.8.8 
+exit 
+
+## How — Switch configuration
+enable 
+configure terminal
+hostname HQ-Switch 
+interface fastEthernet0/1 
+description Uplink to HQ-Router 
+exit 
+interface range fastEthernet0/2 - 7 
+description LAN device port 
+exit
+interface vlan 1
+ip address 192.168.1.2 255.255.255.0 
+no shutdown 
+exit
+enable secret cisco123
+line console 0
+password cisco123 
+login
+exit
+##Why static IPs for printer/server?
+DHCP-assigned addresses can change on lease renewal, which breaks saved shortcuts (like a printer connection on every PC). Servers and printers get static IPs so their address never changes — standard practice in every real office network.
