@@ -61,5 +61,6 @@ line console 0
 password cisco123 
 login
 exit
-##Why static IPs for printer/server?
+
+## Why static IPs for printer/server?
 DHCP-assigned addresses can change on lease renewal, which breaks saved shortcuts (like a printer connection on every PC). Servers and printers get static IPs so their address never changes — standard practice in every real office network.
